@@ -1,0 +1,53 @@
+{
+  "kind": "collectionType",
+  "collectionName": "seat_reservations",
+  "info": {
+    "singularName": "seat-reservation",
+    "pluralName": "seat-reservations",
+    "displayName": "SeatReservation"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "UserName": {
+      "type": "string",
+      "required": true
+    },
+    "Kinde_id": {
+      "type": "string"
+    },
+    "UserEmail": {
+      "type": "email",
+      "required": true
+    },
+    "UserPhone": {
+      "type": "string",
+      "required": true
+    },
+    "Date": {
+      "type": "string",
+      "required": true
+    },
+    "Time": {
+      "type": "string",
+      "required": true
+    },
+    "HeadCount": {
+      "type": "integer",
+      "required": true
+    },
+    "restaurant": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::restaurant.restaurant",
+      "inversedBy": "seat_reservations"
+    },
+    "ReservationId": {
+      "type": "string",
+      "maxLength": 9,
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "kind": "collectionType",
+  "collectionName": "restaurants",
+  "info": {
+    "singularName": "restaurant",
+    "pluralName": "restaurants",
+    "displayName": "restaurant"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "Description": {
+      "type": "text",
+      "required": true
+    },
+    "Phone": {
+      "type": "string",
+      "required": true
+    },
+    "Email": {
+      "type": "email",
+      "required": false
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Address": {
+      "type": "text",
+      "required": true
+    },
+    "City": {
+      "type": "string",
+      "required": true
+    },
+    "Zip": {
+      "type": "string",
+      "required": true
+    },
+    "Country": {
+      "type": "string",
+      "required": true
+    },
+    "OpeningTime": {
+      "type": "time",
+      "required": true
+    },
+    "ClosingTime": {
+      "type": "time",
+      "required": true
+    },
+    "cuisines": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::slider.slider",
+      "inversedBy": "restaurants"
+    },
+    "AverageRating": {
+      "type": "decimal"
+    },
+    "NumbeOfRating": {
+      "type": "integer"
+    },
+    "menu_items": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::menu-item.menu-item"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "Name"
+    },
+    "seat_reservations": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::seat-reservation.seat-reservation",
+      "mappedBy": "restaurant"
+    }
+  }
+}
