@@ -8,9 +8,9 @@ module.exports = [
       contentSecurityPolicy: {
         useDefaults: true,
         directives: {
-          'connect-src': ["'self'", 'https:'],
-          'img-src': ["'self'", 'data:', 'blob:', 'res.cloudinary.com'],
-          'media-src': ["'self'", 'data:', 'blob:', 'res.cloudinary.com'],
+          'connect-src': ["'self'", 'https:','http:'],
+          'img-src': ["'self'", 'data:', 'blob:', 'res.cloudinary.com','https://restaurant-booking-app-strapi.onrender.com'],
+          'media-src': ["'self'", 'data:', 'blob:', 'res.cloudinary.com','https://restaurant-booking-app-strapi.onrender.com'],
           upgradeInsecureRequests: null,
         },
       },
@@ -21,7 +21,11 @@ module.exports = [
     name: 'strapi::cors',
     config: {
       enabled: true,
-      origin: ['https://restaurant-booking-app-two.vercel.app/'], // frontend URL
+      origin: [
+        'http://localhost:3000',
+        'https://restaurant-booking-app-two.vercel.app/',
+        'https://restaurant-booking-app-strapi.onrender.com'
+      ], // frontend URL
       methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
       headers: ['Content-Type', 'Authorization', 'Origin', 'Accept'],
     },
